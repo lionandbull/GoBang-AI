@@ -1,1 +1,1 @@
-# Gobang AI
+# GoBang AI
