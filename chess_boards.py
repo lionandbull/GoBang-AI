@@ -98,7 +98,7 @@ class GoBang(object):
             return False
 
     def have_five(self, chessed):
-        # check whether there are 5 chesses formed a straight line
+        # check whether there are 5 chess formed a straight line
         if len(chessed) == 0:
             return False
         for row in range(15):
@@ -202,7 +202,7 @@ class GoBang(object):
     #         self.robotChess()
 
     def robotChess(self):
-        """机器人下棋"""
+        # play chess by robot
         if self.player == 0:
 
             if len(self.bla_chessed) == 0 and len(self.whi_chessed) == 0:
@@ -220,7 +220,7 @@ class GoBang(object):
             self.draw_a_chess(*newPoint, player=1)
 
     def chess(self, event):
-        """下棋函数"""
+        # play chess
 
         if self.someoneWin == True or self.IsStart == False:
             """判断是否有人赢了或者是否按了开始键"""
@@ -257,7 +257,7 @@ class GoBang(object):
         return net_list
 
     def resetButton(self):
-        """重置按钮的回调函数，实现了整个棋盘重置"""
+        # reset the board
         self.someoneWin = False
         self.IsStart = False
         self.whi_chessed.clear()
