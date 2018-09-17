@@ -1,11 +1,10 @@
 class Robot(object):
-    '''基于五子棋规则写的一个机器人'''
 
     def __init__(self, _board):
         self.board = _board
 
     def haveValuePoints(self, player, enemy, board):
-        """算出棋盘中所有有价值的点"""
+        
         points = []
 
         for x in range(15):
@@ -57,7 +56,7 @@ class Robot(object):
         return points
 
     def MaxValue_po(self, player, enemy):
-        """算出最大价值的点"""
+        
         points = self.haveValuePoints(player, enemy, self.board)
         flag = 0
         _point = []
@@ -68,7 +67,7 @@ class Robot(object):
         return _point[0], _point[1], _point[2]
 
     def value_point(self, player, enemy, list1, list2, list3, list4):
-        """算出点的价值"""
+        
         flag = 0
         flag += self.willbefive(player, list1)
         flag += self.willbefive(player, list2)
@@ -101,7 +100,7 @@ class Robot(object):
         return flag
 
     def willbefive(self, player, checklist):
-        """下在这个点将会得到连无"""
+        
         if checklist[0] == player and checklist[1] == player and \
                 checklist[2] == player and checklist[3] == player:
             return 10000
@@ -121,7 +120,7 @@ class Robot(object):
             return 0
 
     def willbealive4(self, player, checklist):
-        """下在这个点将会形成活四"""
+        
         if checklist[0] == -1 and checklist[1] == player and \
                 checklist[2] == player and checklist[3] == player \
                 and checklist[5] == -1:
@@ -142,7 +141,7 @@ class Robot(object):
             return 0
 
     def willbesleep4(self, player, enemy, checklist):
-        """下在这个点会形成眠四"""
+        
         if checklist[0] == enemy and checklist[1] == player and \
                 checklist[2] == player and checklist[3] == player \
                 and checklist[5] == -1:
@@ -179,7 +178,7 @@ class Robot(object):
             return 0
 
     def willbealive3(self, player, checklist):
-        """下在这个点会形成活三"""
+        
         if checklist[0] == -1 and checklist[1] == -1 and \
                 checklist[2] == player and checklist[3] == player \
                 and checklist[5] == -1:
@@ -232,7 +231,7 @@ class Robot(object):
             return 0
 
     def willbesleep3(self, player, enemy, checklist):
-        """下在这个点会形成眠三"""
+        
         if checklist[1] == enemy and checklist[2] == player and \
                 checklist[3] == player and checklist[5] == -1 \
                 and checklist[6] == -1:
@@ -373,7 +372,7 @@ class Robot(object):
             return 0
 
     def willbealive2(self, player, enemy, checklist):
-        """下在这个点会形成活二"""
+        
         if checklist[1] == -1 and checklist[2] == -1 and \
                 checklist[3] == player and checklist[5] == -1 \
                 and checklist[6] == -1:
@@ -402,7 +401,7 @@ class Robot(object):
             return 0
 
     def willbesleep2(self, player, enemy, checklist):
-        """下在这个点会形成眠二"""
+        
         if checklist[2] == enemy and checklist[3] == player and \
                 checklist[5] == -1 and checklist[6] == -1 \
                 and checklist[7] == -1:

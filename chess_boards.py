@@ -2,8 +2,6 @@ from tkinter import *
 from tkinter.ttk import *
 from tkinter.filedialog import askopenfilename
 from tkinter.filedialog import asksaveasfile
-#from SGFfile import SGFfile
-#from CNN import myCNN
 from robot import Robot
 from my_tools import *
 
@@ -32,9 +30,6 @@ class GoBang(object):
         self.can.grid(row=0, column=0)
         self.net_board = self.get_net_board()
         self.robot = Robot(self.board)
-        #self.sgf = SGFfile()
-        #self.cnn = myCNN()
-        #self.cnn.restore_save()
 
     def init_board(self):
         # Initiate board
@@ -175,31 +170,6 @@ class GoBang(object):
             print(AttributeError("请选择棋手"))
         return
 
-    # def AIrobotChess(self):
-    #     """ai机器人下棋"""
-    #     cnn_predict = self.cnn.predition(self.board)  # 预测
-    #
-    #     if self.player % 2 == 0:
-    #         """开局优化"""
-    #         if len(self.bla_chessed) == 0 and len(self.whi_chessed) == 0:
-    #             self.draw_a_chess(*self.bla_start_pos, 0)
-    #
-    #         else:
-    #             # 机器人计算出全局价值最大的点
-    #             _x, _y, _ = self.robot.MaxValue_po(1, 0)
-    #             newPoint = pos_in_board(_x, _y)
-    #
-    #             if self.ai_no_in_chessed(cnn_predict, _):
-    #                 self.draw_a_chess(*cnn_predict, 0)
-    #             else:
-    #                 self.draw_a_chess(*newPoint, 0)
-    #
-    #     else:
-    #         '''
-    #         由于我没有训练白色棋子的神经网络
-    #         所以，在这里直接让robot来下
-    #         '''
-    #         self.robotChess()
 
     def robotChess(self):
         # play chess by robot
